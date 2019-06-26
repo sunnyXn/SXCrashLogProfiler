@@ -1,0 +1,394 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A339B31222C3AA1C00FC9FD4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A339B31122C3AA1C00FC9FD4 /* AppDelegate.m */; };
+		A339B31522C3AA1C00FC9FD4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A339B31422C3AA1C00FC9FD4 /* ViewController.m */; };
+		A339B31822C3AA1C00FC9FD4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A339B31622C3AA1C00FC9FD4 /* Main.storyboard */; };
+		A339B31A22C3AA1D00FC9FD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A339B31922C3AA1D00FC9FD4 /* Assets.xcassets */; };
+		A339B31D22C3AA1D00FC9FD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A339B31B22C3AA1D00FC9FD4 /* LaunchScreen.storyboard */; };
+		A339B32022C3AA1D00FC9FD4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A339B31F22C3AA1D00FC9FD4 /* main.m */; };
+		A339B33222C3ACFC00FC9FD4 /* NSObject+UmengUncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = A339B32722C3ACFB00FC9FD4 /* NSObject+UmengUncaughtExceptionHandler.m */; };
+		A339B33322C3ACFC00FC9FD4 /* SXLocalLogListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A339B32822C3ACFB00FC9FD4 /* SXLocalLogListVC.m */; };
+		A339B33422C3ACFC00FC9FD4 /* SXLocalLogDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A339B32C22C3ACFB00FC9FD4 /* SXLocalLogDetailVC.m */; };
+		A339B33522C3ACFC00FC9FD4 /* SXLogHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = A339B32F22C3ACFB00FC9FD4 /* SXLogHelper.m */; };
+		A339B33622C3ACFC00FC9FD4 /* SXReportExceptionSender.m in Sources */ = {isa = PBXBuildFile; fileRef = A339B33022C3ACFB00FC9FD4 /* SXReportExceptionSender.m */; };
+		A339B33A22C3B42300FC9FD4 /* NSObject+ConvertModel.m in Sources */ = {isa = PBXBuildFile; fileRef = A339B33822C3B42300FC9FD4 /* NSObject+ConvertModel.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A339B30D22C3AA1C00FC9FD4 /* SXCrashLogProfiler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SXCrashLogProfiler.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A339B31022C3AA1C00FC9FD4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A339B31122C3AA1C00FC9FD4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A339B31322C3AA1C00FC9FD4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		A339B31422C3AA1C00FC9FD4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		A339B31722C3AA1C00FC9FD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A339B31922C3AA1D00FC9FD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A339B31C22C3AA1D00FC9FD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A339B31E22C3AA1D00FC9FD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A339B31F22C3AA1D00FC9FD4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A339B32722C3ACFB00FC9FD4 /* NSObject+UmengUncaughtExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+UmengUncaughtExceptionHandler.m"; sourceTree = "<group>"; };
+		A339B32822C3ACFB00FC9FD4 /* SXLocalLogListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXLocalLogListVC.m; sourceTree = "<group>"; };
+		A339B32922C3ACFB00FC9FD4 /* SXReportExceptionSender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXReportExceptionSender.h; sourceTree = "<group>"; };
+		A339B32A22C3ACFB00FC9FD4 /* SXLogHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXLogHelper.h; sourceTree = "<group>"; };
+		A339B32B22C3ACFB00FC9FD4 /* SXMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXMacro.h; sourceTree = "<group>"; };
+		A339B32C22C3ACFB00FC9FD4 /* SXLocalLogDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXLocalLogDetailVC.m; sourceTree = "<group>"; };
+		A339B32D22C3ACFB00FC9FD4 /* SXLocalLogListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXLocalLogListVC.h; sourceTree = "<group>"; };
+		A339B32E22C3ACFB00FC9FD4 /* NSObject+UmengUncaughtExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+UmengUncaughtExceptionHandler.h"; sourceTree = "<group>"; };
+		A339B32F22C3ACFB00FC9FD4 /* SXLogHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXLogHelper.m; sourceTree = "<group>"; };
+		A339B33022C3ACFB00FC9FD4 /* SXReportExceptionSender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SXReportExceptionSender.m; sourceTree = "<group>"; };
+		A339B33122C3ACFB00FC9FD4 /* SXLocalLogDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SXLocalLogDetailVC.h; sourceTree = "<group>"; };
+		A339B33822C3B42300FC9FD4 /* NSObject+ConvertModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ConvertModel.m"; sourceTree = "<group>"; };
+		A339B33922C3B42300FC9FD4 /* NSObject+ConvertModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ConvertModel.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A339B30A22C3AA1C00FC9FD4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A339B30422C3AA1C00FC9FD4 = {
+			isa = PBXGroup;
+			children = (
+				A339B32622C3ACFB00FC9FD4 /* CrashLog */,
+				A339B30F22C3AA1C00FC9FD4 /* SXCrashLogProfiler */,
+				A339B30E22C3AA1C00FC9FD4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A339B30E22C3AA1C00FC9FD4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A339B30D22C3AA1C00FC9FD4 /* SXCrashLogProfiler.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A339B30F22C3AA1C00FC9FD4 /* SXCrashLogProfiler */ = {
+			isa = PBXGroup;
+			children = (
+				A339B31022C3AA1C00FC9FD4 /* AppDelegate.h */,
+				A339B31122C3AA1C00FC9FD4 /* AppDelegate.m */,
+				A339B31322C3AA1C00FC9FD4 /* ViewController.h */,
+				A339B31422C3AA1C00FC9FD4 /* ViewController.m */,
+				A339B31622C3AA1C00FC9FD4 /* Main.storyboard */,
+				A339B31922C3AA1D00FC9FD4 /* Assets.xcassets */,
+				A339B31B22C3AA1D00FC9FD4 /* LaunchScreen.storyboard */,
+				A339B31E22C3AA1D00FC9FD4 /* Info.plist */,
+				A339B31F22C3AA1D00FC9FD4 /* main.m */,
+			);
+			path = SXCrashLogProfiler;
+			sourceTree = "<group>";
+		};
+		A339B32622C3ACFB00FC9FD4 /* CrashLog */ = {
+			isa = PBXGroup;
+			children = (
+				A339B33722C3B42300FC9FD4 /* ConvertModel */,
+				A339B32E22C3ACFB00FC9FD4 /* NSObject+UmengUncaughtExceptionHandler.h */,
+				A339B32722C3ACFB00FC9FD4 /* NSObject+UmengUncaughtExceptionHandler.m */,
+				A339B33122C3ACFB00FC9FD4 /* SXLocalLogDetailVC.h */,
+				A339B32C22C3ACFB00FC9FD4 /* SXLocalLogDetailVC.m */,
+				A339B32D22C3ACFB00FC9FD4 /* SXLocalLogListVC.h */,
+				A339B32822C3ACFB00FC9FD4 /* SXLocalLogListVC.m */,
+				A339B32A22C3ACFB00FC9FD4 /* SXLogHelper.h */,
+				A339B32F22C3ACFB00FC9FD4 /* SXLogHelper.m */,
+				A339B32B22C3ACFB00FC9FD4 /* SXMacro.h */,
+				A339B32922C3ACFB00FC9FD4 /* SXReportExceptionSender.h */,
+				A339B33022C3ACFB00FC9FD4 /* SXReportExceptionSender.m */,
+			);
+			path = CrashLog;
+			sourceTree = "<group>";
+		};
+		A339B33722C3B42300FC9FD4 /* ConvertModel */ = {
+			isa = PBXGroup;
+			children = (
+				A339B33922C3B42300FC9FD4 /* NSObject+ConvertModel.h */,
+				A339B33822C3B42300FC9FD4 /* NSObject+ConvertModel.m */,
+			);
+			path = ConvertModel;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A339B30C22C3AA1C00FC9FD4 /* SXCrashLogProfiler */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A339B32322C3AA1D00FC9FD4 /* Build configuration list for PBXNativeTarget "SXCrashLogProfiler" */;
+			buildPhases = (
+				A339B30922C3AA1C00FC9FD4 /* Sources */,
+				A339B30A22C3AA1C00FC9FD4 /* Frameworks */,
+				A339B30B22C3AA1C00FC9FD4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SXCrashLogProfiler;
+			productName = SXCrashLogProfiler;
+			productReference = A339B30D22C3AA1C00FC9FD4 /* SXCrashLogProfiler.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A339B30522C3AA1C00FC9FD4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = Sunny;
+				TargetAttributes = {
+					A339B30C22C3AA1C00FC9FD4 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = A339B30822C3AA1C00FC9FD4 /* Build configuration list for PBXProject "SXCrashLogProfiler" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A339B30422C3AA1C00FC9FD4;
+			productRefGroup = A339B30E22C3AA1C00FC9FD4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A339B30C22C3AA1C00FC9FD4 /* SXCrashLogProfiler */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A339B30B22C3AA1C00FC9FD4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A339B31D22C3AA1D00FC9FD4 /* LaunchScreen.storyboard in Resources */,
+				A339B31A22C3AA1D00FC9FD4 /* Assets.xcassets in Resources */,
+				A339B31822C3AA1C00FC9FD4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A339B30922C3AA1C00FC9FD4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A339B31522C3AA1C00FC9FD4 /* ViewController.m in Sources */,
+				A339B33422C3ACFC00FC9FD4 /* SXLocalLogDetailVC.m in Sources */,
+				A339B32022C3AA1D00FC9FD4 /* main.m in Sources */,
+				A339B33622C3ACFC00FC9FD4 /* SXReportExceptionSender.m in Sources */,
+				A339B33222C3ACFC00FC9FD4 /* NSObject+UmengUncaughtExceptionHandler.m in Sources */,
+				A339B33A22C3B42300FC9FD4 /* NSObject+ConvertModel.m in Sources */,
+				A339B33522C3ACFC00FC9FD4 /* SXLogHelper.m in Sources */,
+				A339B33322C3ACFC00FC9FD4 /* SXLocalLogListVC.m in Sources */,
+				A339B31222C3AA1C00FC9FD4 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A339B31622C3AA1C00FC9FD4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A339B31722C3AA1C00FC9FD4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A339B31B22C3AA1D00FC9FD4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A339B31C22C3AA1D00FC9FD4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A339B32122C3AA1D00FC9FD4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A339B32222C3AA1D00FC9FD4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A339B32422C3AA1D00FC9FD4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SXCrashLogProfiler/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sunny.www.SXCrashLogProfiler;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A339B32522C3AA1D00FC9FD4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SXCrashLogProfiler/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sunny.www.SXCrashLogProfiler;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A339B30822C3AA1C00FC9FD4 /* Build configuration list for PBXProject "SXCrashLogProfiler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A339B32122C3AA1D00FC9FD4 /* Debug */,
+				A339B32222C3AA1D00FC9FD4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A339B32322C3AA1D00FC9FD4 /* Build configuration list for PBXNativeTarget "SXCrashLogProfiler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A339B32422C3AA1D00FC9FD4 /* Debug */,
+				A339B32522C3AA1D00FC9FD4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A339B30522C3AA1C00FC9FD4 /* Project object */;
+}
