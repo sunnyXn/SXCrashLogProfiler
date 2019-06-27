@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "SXReportExceptionSender.h"
-
 
 @interface AppDelegate ()
 
@@ -24,16 +22,9 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:[NSClassFromString(@"ViewController") new]];
-    
-    
     self.window.rootViewController = nav;
     
-    
     [self.window makeKeyAndVisible];
-    
-    
-    [SXReportExceptionSender ExceptionHandler];
-    
     
     return YES;
 }

@@ -170,6 +170,7 @@ id getNSUserDefaultsValueForKey(NSString *key)
 
 @implementation SXLogHelper
 
+#pragma  mark - 自定义log
 /**
  *  自定义Log日志,你可以通过NSString *string = [NSString stringWithFormat:@"FUNCTION=%s\nLINE=%d\n];获取调用行数+方法名
  *
@@ -177,7 +178,7 @@ id getNSUserDefaultsValueForKey(NSString *key)
  */
 + (void)customExceptionInfo:(NSString*)exceptionInfo
 {
-    //    LogModel *model = [[LogModel alloc] init];
+    //    SXLogModel *model = [[SXLogModel alloc] init];
     //    model.exceptionInfo = exceptionInfo;
     //#ifdef MODE_Debug
     //    model.others = @"自定义[测试]";
@@ -185,20 +186,76 @@ id getNSUserDefaultsValueForKey(NSString *key)
     //    model.others = @"自定义[生产]";
     //#endif
     //    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:model];
-    //    [SXLogHelper saveFileWithData:data withPrefixName:SX_ExceptionLog];
+    //    [SXLogHelper saveLocalFileWithData:data withPrefixName:SX_ExceptionLog];
     //    [SXLogHelper saveLocalFileWithData:data withPrefixName:SX_LocalExceptionLog];
 }
 
+#pragma  mark - 辅助方法
+/**
+ 获取自定义的不同的环境下的接口地址
 
-
+ @return 不同的环境下的地址
+ */
 + (NSString *)getDefaultApiUrl
 {
-    return nil;
+    NSString * urlString = nil;
+    
+#ifdef MODE_CanSwitchEnvironment
+    // 测试环境
+    urlString = @"http://www.xxx.com";
+#else
+    // 生产环境
+    urlString = @"http://www.xxx.com";
+#endif
+    return urlString;
 }
 
 
+/**
+ 根据filePath获取创建时间
+ 
+ @param filePath 文件路径
+ @return createtime
+ */
++ (NSString*)getExceptionTimeWithFilePath:(NSString*)filePath
+{
+    NSDictionary *fileAttributes = [[NSFileManager defaultManager]attributesOfItemAtPath:filePath error:nil];
+    NSDate *creationDate = [fileAttributes objectForKey:NSFileCreationDate];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:ServerDateFormat];
+    NSString *currentDateStr = [dateFormatter stringFromDate:creationDate];
+    return currentDateStr;
+}
 
-#pragma mark - 记录log
+
+/**
+ 生成文件名，格式exception+timestamp+filesuffix
+ 
+ @return 文件名
+ */
++ (NSString*)getExceptionFileName
+{
+    NSDate *localDate = [NSDate date];
+    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[localDate timeIntervalSince1970]];
+    NSString *fileName = [NSString stringWithFormat:@"exception%@%@",timeSp,SX_Log_File_Suffix];
+    return fileName;
+}
+
+
+/**
+  根据文件名生成log文件夹
+ 
+ @param strPrefixName 前缀（文件名）
+ @return 文件夹路径
+ */
++ (NSString *)getLogsFilePathWithPrefixName:(NSString* ) strPrefixName
+{
+    return [NSTemporaryDirectory() stringByAppendingPathComponent:SX_Str_Protect(strPrefixName)];
+}
+
+
+#pragma mark - 处理log
+/// 获取异常并处理
 + (void)exceptionHandler:(NSException*)exception
 {
     if (!exception || ![exception isKindOfClass:[NSException class]])  return;
@@ -322,59 +379,25 @@ id getNSUserDefaultsValueForKey(NSString *key)
     [SXLogHelper saveLocalFileWithData:data withPrefixName:SX_CrashLocalExceptionLog];
 #else
     // 生产环境下存服务器，后台能查看
-    [SXLogHelper saveFileWithData:data withPrefixName:SX_CrashExceptionLog];
+    [SXLogHelper saveLocalFileWithData:data withPrefixName:SX_CrashExceptionLog];
 #endif
 }
 
-+ (NSString*)getExceptionTimeWithFilePath:(NSString*)filePath
-{
-    NSDictionary *fileAttributes = [[NSFileManager defaultManager]attributesOfItemAtPath:filePath error:nil];
-    NSDate *creationDate = [fileAttributes objectForKey:NSFileCreationDate];
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:ServerDateFormat];
-    NSString *currentDateStr = [dateFormatter stringFromDate:creationDate];
-    return currentDateStr;
-}
 
-+ (NSString*)getExceptionFileName
-{
-    NSDate *localDate = [NSDate date];
-    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[localDate timeIntervalSince1970]];
-    NSString *fileName = [NSString stringWithFormat:@"exception%@%@",timeSp,SX_Log_File_Suffix];
-    return fileName;
-}
-
-
-+ (BOOL)saveFileWithData:(NSData*)data withPrefixName:(NSString* ) strPrefixName
-{
-    //创建目录
-    NSString* path = [NSTemporaryDirectory() stringByAppendingPathComponent:SX_Str_Protect(strPrefixName)];
-    
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    if (![fileManager fileExistsAtPath:path])
-    {
-        [fileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
-    }
-    
-    //创建log日志文件,每次名字后面拼接时间戳。
-    NSString* exceptionFilePath = [path stringByAppendingString:[NSString stringWithFormat:@"/%@",[SXLogHelper getExceptionFileName]]];
-    return [data writeToFile:exceptionFilePath atomically:YES];
-}
-
-
-
-#pragma mark - 本地测试环境修炼专用区域
+#pragma mark - 保存、删除操作
 /*!
- *  保存测试环境本地查看得log数据
+ *  保存不同路径下的log信息
  *
  *  @param data 本地log数据模型
+ *
+ *  @param strPrefixName 测试环境的
  *
  *  @return 保存成功/失败
  */
 + (BOOL)saveLocalFileWithData:(NSData*)data withPrefixName:(NSString* ) strPrefixName
 {
     //创建目录
-    NSString* path = [NSTemporaryDirectory() stringByAppendingPathComponent: SX_Str_Protect(strPrefixName)];
+    NSString* path = [self getLogsFilePathWithPrefixName:strPrefixName];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     if (![fileManager fileExistsAtPath:path])
@@ -387,15 +410,11 @@ id getNSUserDefaultsValueForKey(NSString *key)
     return [data writeToFile:exceptionFilePath atomically:YES];
 }
 
-+ (NSString *)getLogsFilePathWithPrefixName:(NSString* ) strPrefixName
-{
-    return [NSTemporaryDirectory() stringByAppendingPathComponent:SX_Str_Protect(strPrefixName)];
-}
+/**
+ 获取本地所有log信息
 
-/*!
- *  获取本地得记录log,测试环境查看用
- *
- *  @return 包含数据字典得数组
+ @param strPrefixName 不同环境下的路径前缀(文件夹名)
+ @return 包含数据字典得数组
  */
 + (NSArray*)getLogsWithPrefixName:(NSString* ) strPrefixName
 {
@@ -419,9 +438,7 @@ id getNSUserDefaultsValueForKey(NSString *key)
                 if (!error)
                 {
                     SXCrashInfo *modelCrashInfo = [SXCrashInfo new];
-//                    [modelCrashInfo toSelf:dicCrashInfo];
                     [modelCrashInfo convertDataFromDictionary:dicCrashInfo];
-                    
                     
                     NSMutableArray * mAryTheadBackTraceModel = [NSMutableArray array];
                     for (NSDictionary * dicThead in modelCrashInfo.aryCrashThreadBackTrace)
@@ -442,7 +459,6 @@ id getNSUserDefaultsValueForKey(NSString *key)
                     [params setValue:SX_Str_Protect(getAppVersion()) forKey:@"appVersionCode"];
                     [params setValue:[[UIDevice currentDevice] systemVersion] forKey:@"systemVersionCode"];
                     [params setValue:[[UIDevice currentDevice] model] forKey:@"phoneModel"];
-//                    [params setValue:uuid forKey:@"uuid"];
                     
                     [params setValue:[[UIDevice currentDevice] systemName] forKey:@"phonePlatform"];
                     [params setValue:crashLogs forKey:@"crashLogs"];
@@ -454,9 +470,6 @@ id getNSUserDefaultsValueForKey(NSString *key)
                     [params setValue:createTime forKey:@"createTime"];
                     [params setValue:SX_Str_Protect(modelCrashInfo.strCrashReson) forKey:@"reason"];
                     [params setValue:SX_Str_Protect(modelCrashInfo.strCrashName) forKey:@"name"];
-                    
-
-
                     
                     
                     [params setValue:filePath forKey:@"filePath"];
@@ -486,7 +499,7 @@ id getNSUserDefaultsValueForKey(NSString *key)
 
 + (BOOL)deleteAllLogsWithPrefixName:(NSString* )strPrefixName
 {
-    NSString* path = [NSTemporaryDirectory() stringByAppendingPathComponent:SX_Str_Protect(strPrefixName)];
+    NSString* path = [self getLogsFilePathWithPrefixName:strPrefixName];
     return [self deleteLogsWithPath:path];
 }
 

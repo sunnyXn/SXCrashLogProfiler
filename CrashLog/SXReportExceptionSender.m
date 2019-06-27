@@ -16,9 +16,8 @@
 {
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     
-    /// 将生产环境的崩溃日志上传到服务器
+    /// 将崩溃日志上传到服务器
     [self uploadCrashFeedbackAsync];
-    
 }
 
 void uncaughtExceptionHandler(NSException *exception)
@@ -60,7 +59,7 @@ void uncaughtExceptionHandler(NSException *exception)
     }
 }
 
-/// 没啥用 先留着吧
+/// 上传请求
 + (void)reqSendException:(NSString *)exception completion:(void (^)(void))completion
 {
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -71,7 +70,8 @@ void uncaughtExceptionHandler(NSException *exception)
     NSString *strCrashInfo = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     
     
-    NSString *urlString = @"http://www.xxx.com";
+    NSString *urlString = [SXLogHelper getDefaultApiUrl];
+    
     
     // 去除一些特殊字符编码
     urlString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];

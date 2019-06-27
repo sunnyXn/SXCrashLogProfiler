@@ -57,7 +57,12 @@ void __SXTransition_Swizzle(Class c, SEL origSEL, SEL newSEL)
  */
 + (void)load
 {
-    __SXTransition_Swizzle(NSClassFromString(@"UmengUncaughtExceptionHandler"), @selector(handleException:), @selector(xx_UmengUncaughtExceptionHandler:));
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        __SXTransition_Swizzle(NSClassFromString(@"UmengUncaughtExceptionHandler"), @selector(handleException:), @selector(xx_UmengUncaughtExceptionHandler:));
+        
+        [SXReportExceptionSender ExceptionHandler];
+    });
 }
 
 

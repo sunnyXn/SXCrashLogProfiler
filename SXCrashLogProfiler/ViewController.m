@@ -40,10 +40,10 @@
     [self.navigationController pushViewController:[NSClassFromString(@"SXLocalLogListVC") new] animated:YES];
 }
 
-- (void)actionCrash:(UIButton *)btn
+- (void)actionCrash:(id)sender
 {
-    id dict = @{};
-    dict[0] = @"1";
+    NSArray * array = @[@"1" , @"2"];
+    id obj = array[2];
 }
 
 
