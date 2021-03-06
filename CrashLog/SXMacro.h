@@ -34,10 +34,10 @@
 #define screenH   ([UIScreen mainScreen].bounds.size.height)
 #define screenW   ([UIScreen mainScreen].bounds.size.width)
 
-#define ISIPhoneXDevice  ([UIScreen mainScreen].bounds.size.height == 812.0)
+#define ISIPhoneXDevice  ([[[UIApplication sharedApplication] delegate] window].safeAreaInsets.bottom > 0.0)
 
-#define SX_NavBar_H_XAdd   (ISIPhoneXDevice ? 24 : 0) /// iphoneX导航栏 多了24高度 = 88
-#define SX_NavBar_H (64 + SX_NavBar_H_XAdd) /// NavBar的高度 添加X的多余高度
+#define SX_NavBar_H_XAdd   (ISIPhoneXDevice ? [[UIApplication sharedApplication] statusBarFrame].size.height : 0) /// iphoneX导航栏 多了24高度 = 88
+#define SX_NavBar_H (44 + SX_NavBar_H_XAdd) /// NavBar的高度 添加X的多余高度
 
 
 

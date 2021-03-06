@@ -36,6 +36,18 @@
     
     self.title = @"藏经阁";
     
+    UIButton *rightButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 30, 44)];
+
+    [rightButton addTarget:self action:@selector(rightButtonClick) forControlEvents:UIControlEventTouchUpInside];
+
+    [rightButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [rightButton setTitle:@"挥刀自宫" forState:UIControlStateNormal];
+
+    UIBarButtonItem *rightBarButton = [[UIBarButtonItem alloc] initWithCustomView:rightButton];
+
+    self.navigationItem.rightBarButtonItem = rightBarButton;
+    
+    
     [self loadData];
     [self.view sendSubviewToBack:self.tableView];
 }

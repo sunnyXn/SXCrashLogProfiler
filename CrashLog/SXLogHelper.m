@@ -223,6 +223,9 @@ id getNSUserDefaultsValueForKey(NSString *key)
     NSDate *creationDate = [fileAttributes objectForKey:NSFileCreationDate];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:ServerDateFormat];
+    [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
+    [dateFormatter setLocale:[NSLocale currentLocale]];
+    
     NSString *currentDateStr = [dateFormatter stringFromDate:creationDate];
     return currentDateStr;
 }
